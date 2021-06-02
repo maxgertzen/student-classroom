@@ -3,55 +3,76 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import { FaCity } from 'react-icons/fa';
+import { FaCity, FaMailBulk, FaUserCircle, FaGraduationCap, FaTransgenderAlt } from 'react-icons/fa';
 function StudentForm() {
-
+    const courses = ['JavaScript', 'NodeJs', 'CSS', 'Sass']
     return (
-        <Form>
-            <Form.Row>
+        <Form style={{ width: '50vw' }}>
+            <Row className="my-2">
                 <Col>
                     <label htmlFor="usernameInput">Username</label>
                     <InputGroup>
                         <InputGroup.Prepend>
                             <InputGroup.Text id="usernameInput">
-                                <FaCity />
+                                <FaUserCircle />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
                         <Form.Control type="text" id="usernameInput" />
                     </InputGroup>
                 </Col>
                 <Col>
-                    <Form.Group controlId="emailInput">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" />
-                    </Form.Group>
+                    <label htmlFor="emailInput">Email</label>
+                    <InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Text id="emailInput">
+                                <FaMailBulk />
+                            </InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <Form.Control type="email" id="emailInput" />
+                    </InputGroup>
                 </Col>
-            </Form.Row>
-            <Form.Row>
+            </Row>
+            <Row className="my-2">
                 <Col>
-                    <Form.Group>
-                        <Form.Label>Address</Form.Label>
-                        <Form.Control type="text" />
-                    </Form.Group>
+                    <label htmlFor="addressInput">Address</label>
+                    <InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Text id="addressInput">
+                                <FaCity />
+                            </InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <Form.Control type="text" id="addressInput" />
+                    </InputGroup>
                 </Col>
-            </Form.Row>
-            <Form.Row>
+            </Row>
+            <Row className="my-2">
                 <Col>
-                    <Form.Group>
-                        <Form.Label>Course Option</Form.Label>
+                    <label htmlFor="courseInput">Course Option</label>
+                    <InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Text id="courseInput">
+                                <FaGraduationCap />
+                            </InputGroup.Text>
+                        </InputGroup.Prepend>
                         <Form.Control as="select">
-                            {<option>loopedOption</option>}
+                            {
+                                courses.map(course => <option>{course}</option>)
+                            }
                         </Form.Control>
-                    </Form.Group>
+                    </InputGroup>
                 </Col>
                 <Col>
-                    <div className="d-flex flex-column align-items-center justify-content-start">
+                    <div className="d-flex flex-column">
                         <label htmlFor="gender-select">Gender</label>
-                        <Form.Group>
-                            <ToggleButtonGroup type="radio" name="gender" defaultValue={1} id="gender-select">
-                                <ToggleButton variant="outline-success" value={1}>
+                        <InputGroup>
+                            <InputGroup.Text id="gender-select" style={{ borderTopRightRadius: '0px', borderBottomRightRadius: '0px' }}>
+                                <FaTransgenderAlt />
+                            </InputGroup.Text>
+                            <ToggleButtonGroup type="radio" name="gender" defaultValue={1} style={{ flex: 1 }}>
+                                <ToggleButton variant="outline-success" value={1} style={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px' }}>
                                     Female
                                 </ToggleButton>
                                 <ToggleButton variant="outline-success" value={2}>
@@ -61,15 +82,15 @@ function StudentForm() {
                                     Other
                                 </ToggleButton>
                             </ToggleButtonGroup>
-                        </Form.Group>
+                        </InputGroup>
                     </div>
                 </Col>
-            </Form.Row>
-            <Form.Row>
+            </Row>
+            <Row className="my-3">
                 <Button variant="primary" size="lg" type="submit" block>
                     Submit
                 </Button>
-            </Form.Row>
+            </Row>
         </Form>
     )
 }
