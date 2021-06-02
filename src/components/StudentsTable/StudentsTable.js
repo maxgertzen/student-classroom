@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 function StudentsTable({ data, showEntry }) {
 
     return (
-        <Table striped bordered hover variant="dark">
+        <Table size={'sm'} striped bordered hover variant="dark">
             <thead>
                 <tr>
                     <th>#</th>

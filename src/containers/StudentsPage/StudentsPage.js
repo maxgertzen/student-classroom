@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import List from '../../components/List/List';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import './StudentsPage.css';
 import { default as api } from '../../Dal/usersAPI';
+import StudentsTable from '../../components/StudentsTable/StudentsTable';
 
 
 function StudentsPage() {
+
     const [students, setStudents] = useState([]);
     const [selectedStudent, setSelectedStudent] = useState({})
 
@@ -20,7 +21,7 @@ function StudentsPage() {
 
     return (
         <div className="classroom-app-container">
-            <List data={students} showEntry={handleSelect} />
+            <StudentsTable data={students} showEntry={handleSelect} />
             <UserProfile user={selectedStudent} />
         </div>
     )
