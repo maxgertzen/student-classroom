@@ -6,7 +6,7 @@ function StudentsTable({ data, showEntry }) {
     const [show, setShow] = useState(false)
     useEffect(
         () => {
-            let timer1 = setTimeout(() => setShow(true), 2000);
+            let timer1 = setTimeout(() => setShow(true), 8000000);
             return () => {
                 clearTimeout(timer1);
             };
