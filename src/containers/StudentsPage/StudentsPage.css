@@ -9,7 +9,7 @@ table {
 	height: 100%;
 }
 
-table tr {
+table tbody tr {
 	cursor: pointer;
 }
 
@@ -36,4 +36,27 @@ img.student-avatar {
 	height: 20%;
 	object-fit: scale-down;
 	margin-bottom: 2.5em;
+}
+
+.modal-dialog {
+	max-width: fit-content !important;
+}
+
+.modal-header-fix {
+	margin: auto;
+}
+
+.modal-header {
+	position: relative;
+}
+
+.modal-header button.close {
+	position: absolute;
+	left: 100%;
+	margin: auto -3.8rem;
+}
+
+.spinnerShown {
+	text-align: center;
+	vertical-align: middle;
 }

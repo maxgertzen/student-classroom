@@ -1,25 +1,33 @@
 import './App.css';
 import Container from 'react-bootstrap/Container';
 import Header from './components/Header/Header';
-import { useState } from 'react';
-import RegisterPage from './containers/LoginPage/RegisterPage';
+import { useState, useEffect } from 'react';
+import AddStudentModal from './containers/AddStudentModal/AddStudentModal';
 import StudentsPage from './containers/StudentsPage/StudentsPage';
+import { default as api } from './Dal/usersAPI';
 
 function App() {
-  const [isLoginPage, setisLoginPage] = useState(true)
-  const renderPage = ({ target: e }) => {
-    if (e.innerText === 'Students' && isLoginPage) {
-      setisLoginPage(!isLoginPage)
-    } else if (e.innerText === 'Sign Up' && !isLoginPage) {
-      setisLoginPage(!isLoginPage)
-    }
-  }
+  const [modalOpen, setModalOpen] = useState(false)
+  const [studentsList, setStudentsList] = useState([])
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+  const addUserToDatabase = (user) => { api.add(user); closeModal() };
 
+  useEffect(() => {
+    const data = api.getAll()
+    setStudentsList(data)
+  }, [studentsList])
   return (
     <>
-      <Header handleSelect={renderPage} />
+      <Header handleSelect={openModal} />
       <Container fluid>
-        {isLoginPage ? <RegisterPage /> : <StudentsPage />}
+        <StudentsPage data={studentsList} />
+        {
+          modalOpen ?
+            <AddStudentModal handleClose={closeModal} handleShow={modalOpen} handleSubmit={addUserToDatabase} />
+            :
+            null
+        }
       </Container>
     </>
   )

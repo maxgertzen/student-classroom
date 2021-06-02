@@ -2,12 +2,11 @@ import React from 'react';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import InputGroup from 'react-bootstrap/InputGroup'
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { FaCity, FaMailBulk, FaUserCircle, FaGraduationCap, FaTransgenderAlt } from 'react-icons/fa';
-function StudentForm() {
+function StudentForm({ onChangedValue }) {
     const courses = ['JavaScript', 'NodeJs', 'CSS', 'Sass']
     return (
         <Form style={{ width: '50vw' }}>
@@ -20,7 +19,7 @@ function StudentForm() {
                                 <FaUserCircle />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="text" id="usernameInput" />
+                        <Form.Control type="text" id="usernameInput" name="username" onChange={e => onChangedValue(e.target)} />
                     </InputGroup>
                 </Col>
                 <Col>
@@ -31,7 +30,7 @@ function StudentForm() {
                                 <FaMailBulk />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="email" id="emailInput" />
+                        <Form.Control type="email" id="emailInput" name="email" onChange={e => onChangedValue(e.target)} />
                     </InputGroup>
                 </Col>
             </Row>
@@ -44,7 +43,7 @@ function StudentForm() {
                                 <FaCity />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="text" id="addressInput" />
+                        <Form.Control type="text" id="addressInput" name="address" onChange={e => onChangedValue(e.target)} />
                     </InputGroup>
                 </Col>
             </Row>
@@ -57,9 +56,9 @@ function StudentForm() {
                                 <FaGraduationCap />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control as="select">
+                        <Form.Control as="select" name="course" onChange={e => onChangedValue(e.target)}>
                             {
-                                courses.map(course => <option>{course}</option>)
+                                courses.map((course, index) => <option key={index}>{course}</option>)
                             }
                         </Form.Control>
                     </InputGroup>
@@ -71,25 +70,20 @@ function StudentForm() {
                             <InputGroup.Text id="gender-select" style={{ borderTopRightRadius: '0px', borderBottomRightRadius: '0px' }}>
                                 <FaTransgenderAlt />
                             </InputGroup.Text>
-                            <ToggleButtonGroup type="radio" name="gender" defaultValue={1} style={{ flex: 1 }}>
-                                <ToggleButton variant="outline-success" value={1} style={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px' }}>
+                            <ToggleButtonGroup type="radio" name="gender" style={{ flex: 1 }} onChange={e => onChangedValue({ name: 'gender', value: e })}>
+                                <ToggleButton variant="outline-success" value={'Female'} style={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px' }}>
                                     Female
                                 </ToggleButton>
-                                <ToggleButton variant="outline-success" value={2}>
+                                <ToggleButton variant="outline-success" value={'Male'}>
                                     Male
                                 </ToggleButton>
-                                <ToggleButton variant="outline-success" value={3}>
+                                <ToggleButton variant="outline-success" value={'Other'}>
                                     Other
                                 </ToggleButton>
                             </ToggleButtonGroup>
                         </InputGroup>
                     </div>
                 </Col>
-            </Row>
-            <Row className="my-3">
-                <Button variant="primary" size="lg" type="submit" block>
-                    Submit
-                </Button>
             </Row>
         </Form>
     )

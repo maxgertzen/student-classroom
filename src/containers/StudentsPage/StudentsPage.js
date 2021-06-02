@@ -5,14 +5,13 @@ import { default as api } from '../../Dal/usersAPI';
 import StudentsTable from '../../components/StudentsTable/StudentsTable';
 
 
-function StudentsPage() {
-
-    const [students, setStudents] = useState([]);
+function StudentsPage({ data }) {
+    const [showStudents, setShowStudents] = useState(data);
     const [selectedStudent, setSelectedStudent] = useState({})
 
     useEffect(() => {
-        setStudents(api.getAll());
-    }, [])
+        setShowStudents(data);
+    }, [data])
 
     const handleSelect = (id) => {
         let newStudent = api.getOne(id)
@@ -21,7 +20,7 @@ function StudentsPage() {
 
     return (
         <div className="classroom-app-container">
-            <StudentsTable data={students} showEntry={handleSelect} />
+            <StudentsTable data={showStudents} showEntry={handleSelect} />
             <UserProfile user={selectedStudent} />
         </div>
     )

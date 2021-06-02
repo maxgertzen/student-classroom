@@ -22,8 +22,7 @@ function Header({ handleSelect }) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link onClick={(e) => handleSelect(e)}>Students</Nav.Link>
-                        <Nav.Link onClick={(e) => handleSelect(e)}>Sign Up</Nav.Link>
+                        <Nav.Link onClick={(e) => handleSelect(e)}>Add Student</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

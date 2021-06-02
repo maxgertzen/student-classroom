@@ -10,7 +10,10 @@ const API = (() => {
         return __students.findIndex(obj => obj._id === id);
     }
 
-    const getStudents = () => {
+    const getStudents = (sort) => {
+        if (sort) {
+            return __students.sort(sort)
+        }
         return __students;
     }
 
