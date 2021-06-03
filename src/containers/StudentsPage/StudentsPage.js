@@ -5,7 +5,7 @@ import { default as api } from '../../Dal/usersAPI';
 import StudentsTable from '../../components/StudentsTable/StudentsTable';
 
 
-function StudentsPage({ data }) {
+function StudentsPage({ data, sortTable }) {
     const [showStudents, setShowStudents] = useState(data);
     const [selectedStudent, setSelectedStudent] = useState({})
 
@@ -20,7 +20,7 @@ function StudentsPage({ data }) {
 
     return (
         <div className="classroom-app-container">
-            <StudentsTable data={showStudents} showEntry={handleSelect} />
+            <StudentsTable data={showStudents} showEntry={handleSelect} sortIt={sortTable} />
             <UserProfile user={selectedStudent} />
         </div>
     )

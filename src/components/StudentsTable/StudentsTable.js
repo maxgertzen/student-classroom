@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import { FaSortDown } from 'react-icons/fa';
 import Spinner from 'react-bootstrap/Spinner'
-function StudentsTable({ data, showEntry }) {
-    const [show, setShow] = useState(false)
+import { CSSTransition } from 'react-transition-group';
+import './StudentsTable.css';
+
+function StudentsTable({ data, showEntry, sortIt }) {
+    const [show, setShow] = useState(false);
     useEffect(
         () => {
-            let timer1 = setTimeout(() => setShow(true), 8000000);
+            let timer1 = setTimeout(() => setShow(true), 1000);
             return () => {
+                setShow(false)
                 clearTimeout(timer1);
             };
         },
@@ -18,8 +22,8 @@ function StudentsTable({ data, showEntry }) {
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Username<FaSortDown style={{ verticalAlign: 'initial', float: 'right' }} /></th>
-                    <th>Course<FaSortDown style={{ verticalAlign: 'initial', float: 'right' }} /></th>
+                    <th>Username<FaSortDown style={{ verticalAlign: 'initial', float: 'right' }} onClick={sortIt((a, b) => a.username - b.username)} /></th>
+                    <th>Course<FaSortDown style={{ verticalAlign: 'initial', float: 'right' }} onClick={sortIt((a, b) => a.course - b.course)} /></th>
                 </tr>
             </thead>
 
@@ -37,8 +41,16 @@ function StudentsTable({ data, showEntry }) {
                         :
                         <tr className="spinnerShown">
                             <td colSpan="3">
-                                <Spinner animation="border" role="status">
-                                </Spinner>
+                                <CSSTransition
+                                    in={!show}
+                                    timeout={300}
+                                    classNames="table"
+                                    onEnter={() => setShow(true)}
+                                    onExited={() => setShow(false)}
+                                >
+                                    <Spinner animation="border" role="status">
+                                    </Spinner>
+                                </CSSTransition>
                             </td>
                         </tr>
                 }

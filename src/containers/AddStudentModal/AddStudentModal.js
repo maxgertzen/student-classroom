@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import StudentForm from '../../components/StudentForm/StudentForm';
 import Modal from 'react-bootstrap/Modal'
+import ModalHeader from 'react-bootstrap/ModalHeader'
+import ModalBody from 'react-bootstrap/ModalBody'
+import ModalFooter from 'react-bootstrap/ModalFooter'
 import Button from 'react-bootstrap/Button'
 function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
     const [formValues, setFormValues] = useState({});
@@ -15,7 +18,7 @@ function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
     }
     return (
         <Modal show={handleShow} onHide={handleClose}>
-            <Modal.Header closeButton>
+            <ModalHeader closeButton>
                 <div className="modal-header-fix">
                     <Modal.Title className="text-center">
                         <h3 className="h3 d-block">Student Details</h3>
@@ -24,15 +27,15 @@ function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
                         </p>
                     </Modal.Title>
                 </div>
-            </Modal.Header>
-            <Modal.Body>
+            </ModalHeader>
+            <ModalBody>
                 <StudentForm onChangedValue={handleChange} />
-            </Modal.Body>
-            <Modal.Footer>
+            </ModalBody>
+            <ModalFooter>
                 <Button variant="primary" size="lg" type="submit" block onClick={() => handleSubmit(formValues)}>
                     Submit
                 </Button>
-            </Modal.Footer>
+            </ModalFooter>
         </Modal>
     )
 }

@@ -1,0 +1,24 @@
+.table-enter {
+	opacity: 0;
+}
+.table-enter-active {
+	opacity: 1;
+	transition: opacity 200ms;
+}
+.table-exit {
+	opacity: 1;
+}
+.table-exit-active {
+	opacity: 0;
+	transition: opacity 200ms;
+}
+
+thead th svg {
+	cursor: pointer;
+	filter: contrast(0%);
+	transition: filter 0.2s ease-in-out;
+}
+thead th svg:hover {
+	cursor: pointer;
+	filter: contrast(100%);
+}

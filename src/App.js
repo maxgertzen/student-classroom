@@ -11,17 +11,23 @@ function App() {
   const [studentsList, setStudentsList] = useState([])
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
-  const addUserToDatabase = (user) => { api.add(user); closeModal() };
+  const addUserToDatabase = (user) => { setStudentsList(prevList => [...prevList, api.add(user)]); closeModal() };
+
+  const applySortOnTable = (sortMethod) => {
+    const sortedData = api.getAll(sortMethod);
+    console.log(sortedData);
+    setStudentsList(sortedData)
+  }
 
   useEffect(() => {
     const data = api.getAll()
     setStudentsList(data)
-  }, [studentsList])
+  }, [])
   return (
     <>
       <Header handleSelect={openModal} />
       <Container fluid>
-        <StudentsPage data={studentsList} />
+        <StudentsPage data={studentsList} sortTable={applySortOnTable} />
         {
           modalOpen ?
             <AddStudentModal handleClose={closeModal} handleShow={modalOpen} handleSubmit={addUserToDatabase} />

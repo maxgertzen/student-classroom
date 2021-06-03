@@ -60,3 +60,9 @@ img.student-avatar {
 	text-align: center;
 	vertical-align: middle;
 }
+
+.spinnerShown .spinner-border {
+	margin-top: 5rem;
+	height: 10rem;
+	width: 10rem;
+}
