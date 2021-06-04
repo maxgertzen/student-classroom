@@ -16,9 +16,18 @@
 thead th svg {
 	cursor: pointer;
 	filter: contrast(0%);
+	margin-bottom: -10px;
 	transition: filter 0.2s ease-in-out;
 }
 thead th svg:hover {
 	cursor: pointer;
 	filter: contrast(100%);
+}
+
+.sorting-btns {
+	float: right;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }

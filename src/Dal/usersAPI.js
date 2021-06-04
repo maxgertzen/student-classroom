@@ -11,8 +11,8 @@ const API = (() => {
     }
 
     const getStudents = (sort) => {
-        if (sort) {
-            return __students.sort(sort)
+        if (sort instanceof Function) {
+            return [...__students].sort(sort)
         }
         return __students;
     }

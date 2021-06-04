@@ -11,11 +11,13 @@ function App() {
   const [studentsList, setStudentsList] = useState([])
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
-  const addUserToDatabase = (user) => { setStudentsList(prevList => [...prevList, api.add(user)]); closeModal() };
+  const addUserToDatabase = (user) => {
+    setStudentsList(prevList => [...prevList, api.add(user)]); closeModal();
+
+  };
 
   const applySortOnTable = (sortMethod) => {
     const sortedData = api.getAll(sortMethod);
-    console.log(sortedData);
     setStudentsList(sortedData)
   }
 

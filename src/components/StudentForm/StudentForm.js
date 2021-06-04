@@ -6,10 +6,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { FaCity, FaMailBulk, FaUserCircle, FaGraduationCap, FaTransgenderAlt } from 'react-icons/fa';
-function StudentForm({ onChangedValue }) {
-    const courses = ['JavaScript', 'NodeJs', 'CSS', 'Sass']
+import FormErrorMessage from '../FormErrorMessage/FormErrorMessage';
+
+
+function StudentForm({ onChangedValue, errors, isValid }) {
+    const courses = ['JavaScript', 'NodeJs', 'CSS', 'Sass'];
+
     return (
-        <Form style={{ width: '50vw' }}>
+        <Form style={{ width: '50vw' }} noValidate validated={isValid}>
             <Row className="my-2">
                 <Col>
                     <label htmlFor="usernameInput">Username</label>
@@ -19,7 +23,8 @@ function StudentForm({ onChangedValue }) {
                                 <FaUserCircle />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="text" id="usernameInput" name="username" onChange={e => onChangedValue(e.target)} />
+                        <Form.Control type="text" id="usernameInput" name="username" onChange={e => onChangedValue(e)} required />
+                        <FormErrorMessage errors={errors.username} />
                     </InputGroup>
                 </Col>
                 <Col>
@@ -30,7 +35,8 @@ function StudentForm({ onChangedValue }) {
                                 <FaMailBulk />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="email" id="emailInput" name="email" onChange={e => onChangedValue(e.target)} />
+                        <Form.Control type="email" id="emailInput" name="email" onChange={e => onChangedValue(e)} required />
+                        <FormErrorMessage errors={errors.email} />
                     </InputGroup>
                 </Col>
             </Row>
@@ -43,7 +49,8 @@ function StudentForm({ onChangedValue }) {
                                 <FaCity />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="text" id="addressInput" name="address" onChange={e => onChangedValue(e.target)} />
+                        <Form.Control type="text" id="addressInput" name="address" onChange={e => onChangedValue(e)} required />
+                        <FormErrorMessage errors={errors.address} />
                     </InputGroup>
                 </Col>
             </Row>
@@ -56,11 +63,12 @@ function StudentForm({ onChangedValue }) {
                                 <FaGraduationCap />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control as="select" name="course" onChange={e => onChangedValue(e.target)}>
+                        <Form.Control as="select" name="course" onChange={e => onChangedValue(e)} required>
                             {
                                 courses.map((course, index) => <option key={index}>{course}</option>)
                             }
                         </Form.Control>
+                        <FormErrorMessage errors={errors.course} />
                     </InputGroup>
                 </Col>
                 <Col>
@@ -70,7 +78,7 @@ function StudentForm({ onChangedValue }) {
                             <InputGroup.Text id="gender-select" style={{ borderTopRightRadius: '0px', borderBottomRightRadius: '0px' }}>
                                 <FaTransgenderAlt />
                             </InputGroup.Text>
-                            <ToggleButtonGroup type="radio" name="gender" style={{ flex: 1 }} onChange={e => onChangedValue({ name: 'gender', value: e })}>
+                            <ToggleButtonGroup type="radio" name="gender" style={{ flex: 1 }} onChange={e => onChangedValue(e)} required>
                                 <ToggleButton variant="outline-success" value={'Female'} style={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px' }}>
                                     Female
                                 </ToggleButton>
@@ -81,6 +89,7 @@ function StudentForm({ onChangedValue }) {
                                     Other
                                 </ToggleButton>
                             </ToggleButtonGroup>
+                            <FormErrorMessage errors={errors.gender} />
                         </InputGroup>
                     </div>
                 </Col>

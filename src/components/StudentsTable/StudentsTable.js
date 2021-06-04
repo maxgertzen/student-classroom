@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
-import { FaSortDown } from 'react-icons/fa';
+import { FaSortDown, FaSortUp } from 'react-icons/fa';
 import Spinner from 'react-bootstrap/Spinner'
-import { CSSTransition } from 'react-transition-group';
+// import { CSSTransition } from 'react-transition-group';
 import './StudentsTable.css';
 
 function StudentsTable({ data, showEntry, sortIt }) {
     const [show, setShow] = useState(false);
+    const [isValAsc, setIsValAsc] = useState({
+        username: false,
+        course: false
+    })
     useEffect(
         () => {
             let timer1 = setTimeout(() => setShow(true), 1000);
@@ -17,13 +21,50 @@ function StudentsTable({ data, showEntry, sortIt }) {
         },
         [data]
     );
+
+    const sortTable = (type, directionIsAsc) => {
+        if (!directionIsAsc) {
+            sortIt((a, b) => a[type].localeCompare(b[type]));
+            setIsValAsc((prevState => ({
+                ...prevState,
+                [type]: true
+            })))
+        } else {
+            sortIt((a, b) => b[type].localeCompare(a[type]));
+            setIsValAsc((prevState => ({
+                ...prevState,
+                [type]: false
+            })))
+        }
+    }
+
     return (
         <Table size={'sm'} striped bordered hover variant="dark">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Username<FaSortDown style={{ verticalAlign: 'initial', float: 'right' }} onClick={sortIt((a, b) => a.username - b.username)} /></th>
-                    <th>Course<FaSortDown style={{ verticalAlign: 'initial', float: 'right' }} onClick={sortIt((a, b) => a.course - b.course)} /></th>
+                    <th>Username{
+                        <div className="sorting-btns">
+                            {
+                                isValAsc['username'] ?
+                                    <FaSortUp style={{ display: 'block' }} onClick={() => sortTable('username', isValAsc['username'])} />
+                                    :
+                                    <FaSortDown style={{ display: 'block', marginTop: '-10px' }} onClick={() => sortTable('username', isValAsc['username'])} />
+                            }
+                        </div>
+                    }
+                    </th>
+                    <th>Course{
+                        <div className="sorting-btns">
+                            {
+                                isValAsc['course'] ?
+                                    <FaSortUp style={{ display: 'block' }} onClick={() => sortTable('course', isValAsc['course'])} />
+                                    :
+                                    <FaSortDown style={{ display: 'block', marginTop: '-10px' }} onClick={() => sortTable('course', isValAsc['course'])} />
+                            }
+                        </div>
+                    }
+                    </th>
                 </tr>
             </thead>
 
@@ -41,16 +82,8 @@ function StudentsTable({ data, showEntry, sortIt }) {
                         :
                         <tr className="spinnerShown">
                             <td colSpan="3">
-                                <CSSTransition
-                                    in={!show}
-                                    timeout={300}
-                                    classNames="table"
-                                    onEnter={() => setShow(true)}
-                                    onExited={() => setShow(false)}
-                                >
-                                    <Spinner animation="border" role="status">
-                                    </Spinner>
-                                </CSSTransition>
+                                <Spinner animation="border" role="status">
+                                </Spinner>
                             </td>
                         </tr>
                 }
