@@ -12,8 +12,9 @@ function App() {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
   const addUserToDatabase = (user) => {
-    setStudentsList(prevList => [...prevList, api.add(user)]); closeModal();
-
+    console.table(user)
+    setStudentsList(prevList => [...prevList, api.add(user)]);
+    closeModal();
   };
 
   const applySortOnTable = (sortMethod) => {

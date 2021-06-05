@@ -1,14 +1,27 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form'
+import './FormErrorMessage.css'
 
 function FormErrorMessage({ errors }) {
     return (
-        <Form.Control.Feedback type="invalid">
-            {errors ?
-                errors.map((value, index) => <span key={index}>{value}</span>)
-                : null
+        <>
+            {
+                errors ?
+                    <div className={`errors-container ${errors.length > 1 ? 'multipleErr' : ''} d-flex`}>
+                        {errors.map((error, idx) => {
+                            return (
+                                <small
+                                    className="form-text text-danger text-capitalize"
+                                    key={idx}
+                                >
+                                    {error}
+                                </small>
+                            )
+                        })}
+                    </div >
+                    :
+                    <div className="errors-container"></div>
             }
-        </Form.Control.Feedback>
+        </>
     )
 }
 

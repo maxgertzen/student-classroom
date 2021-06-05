@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import StudentForm from '../../components/StudentForm/StudentForm';
 import Modal from 'react-bootstrap/Modal'
 import ModalHeader from 'react-bootstrap/ModalHeader'
@@ -8,13 +8,38 @@ import Button from 'react-bootstrap/Button';
 import { validateDataOnSubmit, validateSingleInput } from '../../utils/formValidator';
 
 function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
-    const [formValues, setFormValues] = useState({});
-    const [errorVals, setErrorVals] = useState([]);
-    const [isValid, setIsValid] = useState(false);
+    const [formValues, setFormValues] = useState({
+        username: '',
+        email: '',
+        address: '',
+        course: '',
+        gender: ''
+    });
+    const [errorVals, setErrorVals] = useState({});
+    const [enableButton, setEnableButton] = useState(false);
 
-    const handleChange = (target) => {
-        const { name, value } = target;
-        setErrorVals(validateSingleInput(target))
+
+    useEffect(() => {
+        const checkValidity = () => {
+            for (const attr in formValues) {
+                if (errorVals[attr]?.length || !formValues[attr]?.length) {
+                    setEnableButton(false)
+                } else {
+                    setEnableButton(true)
+                }
+            }
+        }
+        checkValidity()
+    }, [formValues, errorVals])
+
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        const errors = validateSingleInput(e.target);
+        setErrorVals((prevErrors) => ({
+            ...prevErrors,
+            [name]: errors[name]
+        }))
         setFormValues((prevFormVals) => ({
             ...prevFormVals,
             [name]: value
@@ -22,17 +47,19 @@ function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
     }
 
     const submitForm = () => {
-        const errors = validateDataOnSubmit(formValues);
-        if (!errors.length) {
-            setIsValid(true)
+        const { validator, status } = validateDataOnSubmit(formValues);
+        if (status) {
             handleSubmit(formValues)
         } else {
-            setErrorVals(errors)
+            setErrorVals((prevErrors) => ({
+                ...prevErrors,
+                validator
+            }))
         }
     }
 
     return (
-        <Modal show={handleShow} onHide={handleClose}>
+        <Modal show={handleShow} onHide={handleClose} backdrop="static" keyboard={false}>
             <ModalHeader closeButton>
                 <div className="modal-header-fix">
                     <Modal.Title className="text-center">
@@ -44,10 +71,10 @@ function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
                 </div>
             </ModalHeader>
             <ModalBody>
-                <StudentForm onChangedValue={handleChange} errors={errorVals} isValid={isValid} />
+                <StudentForm onChangedValue={handleChange} errors={errorVals} />
             </ModalBody>
             <ModalFooter>
-                <Button variant="primary" size="lg" type="submit" block onClick={() => submitForm()} disabled={!isValid}>
+                <Button variant="primary" size="lg" type="button" form="student-add-form" block onClick={() => submitForm()} disabled={!enableButton}>
                     Submit
                 </Button>
             </ModalFooter>

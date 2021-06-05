@@ -1,0 +1,12 @@
+.errors-container {
+	height: 20px;
+	width: 100%;
+}
+
+.errors-container.multipleErr small:last-child {
+	margin-left: auto;
+}
+
+.form-text {
+	font-size: 0.7em;
+}
