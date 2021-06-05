@@ -5,104 +5,104 @@
 			"username": "mandyCochran11",
 			"email": "mandycochran11@quarex.us",
 			"address": "318 Newkirk Avenue, Rodanthe, California, 2601",
-			"gender": "Female",
-			"course": "NodeJs"
+			"course": "NodeJs",
+			"gender": "Female"
 		},
 		{
 			"_id": "60b3be1e2eed8628acd4fc66",
 			"username": "jerriParker13",
 			"email": "jerriparker13@xanide.tv",
 			"address": "282 Bush Street, Bridgetown, Vermont, 5986",
-			"gender": "Female",
-			"course": "NodeJs"
+			"course": "NodeJs",
+			"gender": "Female"
 		},
 		{
 			"_id": "60b3be1e6efacf565906fd09",
 			"username": "gillHolland30",
 			"email": "gillholland30@zialactic.net",
 			"address": "277 Johnson Street, Martinez, Alabama, 8546",
-			"gender": "Other",
-			"course": "CSS"
+			"course": "CSS",
+			"gender": "Other"
 		},
 		{
 			"_id": "60b3be1e0f6d560f8ec3e1e4",
 			"username": "cervantesButler34",
 			"email": "cervantesbutler34@corporana.com",
 			"address": "399 Wakeman Place, Muir, District Of Columbia, 7983",
-			"gender": "Female",
-			"course": "NodeJs"
+			"course": "NodeJs",
+			"gender": "Female"
 		},
 		{
 			"_id": "60b3be1eb603641a7b545280",
 			"username": "hansonWatson50",
 			"email": "hansonwatson50@plexia.biz",
 			"address": "713 Howard Place, Glenshaw, Wisconsin, 9754",
-			"gender": "Male",
-			"course": "Javascript"
+			"course": "Javascript",
+			"gender": "Male"
 		},
 		{
 			"_id": "60b3be1e7088a5943ddfe8cc",
 			"username": "henriettaWilliam31",
 			"email": "henriettawilliam31@polarax.info",
 			"address": "963 Wythe Place, Rivers, Maine, 8728",
-			"gender": "Male",
-			"course": "Javascript"
+			"course": "Javascript",
+			"gender": "Male"
 		},
 		{
 			"_id": "60b3be1e3e3a3c8ac0c05c94",
 			"username": "penningtonDonaldson8",
 			"email": "penningtondonaldson8@shepard.biz",
 			"address": "180 Fillmore Avenue, Beyerville, Palau, 6061",
-			"gender": "Female",
-			"course": "Javascript"
+			"course": "Javascript",
+			"gender": "Female"
 		},
 		{
 			"_id": "60b3be1e0dc49e51be4ab5bf",
 			"username": "mooneyMays29",
 			"email": "mooneymays29@sulfax.name",
 			"address": "773 Hull Street, Kidder, Northern Mariana Islands, 3821",
-			"gender": "Female",
-			"course": "NodeJs"
+			"course": "NodeJs",
+			"gender": "Female"
 		},
 		{
 			"_id": "60b3be1e0987e0783d65ccfd",
 			"username": "amberDrake15",
 			"email": "amberdrake15@techmania.ca",
 			"address": "851 Rapelye Street, Lisco, Louisiana, 9236",
-			"gender": "Female",
-			"course": "Javascript"
+			"course": "Javascript",
+			"gender": "Female"
 		},
 		{
 			"_id": "60b3be1e9ede8e7afc43aea0",
 			"username": "saraLove28",
 			"email": "saralove28@jetsilk.org",
 			"address": "517 Boerum Street, Freetown, Federated States Of Micronesia, 7040",
-			"gender": "Female",
-			"course": "CSS"
+			"course": "CSS",
+			"gender": "Female"
 		},
 		{
 			"_id": "60b3be1e5645bb1b22f97083",
 			"username": "doreenAllen34",
 			"email": "doreenallen34@kidgrease.me",
 			"address": "281 Perry Place, Chicopee, Delaware, 9159",
-			"gender": "Female",
-			"course": "Javascript"
+			"course": "Javascript",
+			"gender": "Female"
 		},
 		{
 			"_id": "60b3be1ed28244d36fd712ae",
 			"username": "angieMcneil12",
 			"email": "angiemcneil12@ziggles.co.uk",
 			"address": "204 Dewey Place, Ona, Nebraska, 1589",
-			"gender": "Other",
-			"course": "Javascript"
+			"course": "Javascript",
+			"gender": "Other"
 		},
 		{
 			"_id": "60b3be1ebffcc82a57c4f822",
 			"username": "marciBush44",
 			"email": "marcibush44@comcur.us",
 			"address": "317 Baughman Place, Germanton, Illinois, 5635",
-			"gender": "Female",
-			"course": "Javascript"
+			"course": "Javascript",
+			"gender": "Female"
 		}
 	]
 }

@@ -2,6 +2,7 @@
 	display: flex;
 	flex-flow: row nowrap;
 	height: 75vh;
+	margin-top: 3rem;
 }
 
 table {
@@ -11,31 +12,6 @@ table {
 
 table tbody tr {
 	cursor: pointer;
-}
-
-div.user-profile {
-	flex: 1;
-	display: flex;
-	flex-flow: column;
-	align-items: flex-start;
-	justify-content: baseline;
-	padding-left: 2em;
-}
-
-div.user-profile p {
-	font-size: 1em;
-}
-
-div.user-profile .userProp {
-	text-transform: capitalize;
-	font-weight: 600;
-	font-size: larger;
-}
-
-img.student-avatar {
-	height: 20%;
-	object-fit: scale-down;
-	margin-bottom: 2.5em;
 }
 
 .modal-dialog {

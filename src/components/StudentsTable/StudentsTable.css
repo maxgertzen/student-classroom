@@ -31,3 +31,11 @@ thead th svg:hover {
 	align-items: center;
 	height: 100%;
 }
+
+tbody tr {
+	opacity: 0.5;
+	transition: opacity 0.3s linear;
+}
+tbody tr:hover {
+	opacity: 1 !important;
+}

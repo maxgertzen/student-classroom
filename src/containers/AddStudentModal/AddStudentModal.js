@@ -60,7 +60,7 @@ function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
     }
 
     return (
-        <Modal show={handleShow} onHide={handleClose} backdrop="static" keyboard={false}>
+        <Modal show={handleShow} onHide={handleClose} backdrop="static" keyboard={false} animation>
             <ModalHeader closeButton>
                 <div className="modal-header-fix">
                     <Modal.Title className="text-center">

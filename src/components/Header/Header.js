@@ -8,14 +8,14 @@ function Header({ handleSelect }) {
 
     return (
         <Container as="header" className="px-0 mb-2" fluid>
-            <Navbar bg="light" className="px-4" variant="light" expand="lg">
+            <Navbar bg="dark" className="px-4" variant="dark" expand="lg">
                 <Navbar.Brand href="#">
                     <img
                         alt="knowledge logo"
                         src={logo}
                         width="30"
                         height="30"
-                        className="d-inline-block align-top"
+                        className="d-inline-block align-top brand-img"
                     />{' '}
                     Classroom
                 </Navbar.Brand>
