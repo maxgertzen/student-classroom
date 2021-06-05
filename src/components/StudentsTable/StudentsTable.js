@@ -9,11 +9,12 @@ function StudentsTable({ data, showEntry, sortIt }) {
     const [show, setShow] = useState(false);
     const [isValAsc, setIsValAsc] = useState({
         username: false,
-        course: false
+        course: false,
+        gender: false
     })
     useEffect(
         () => {
-            let timer1 = setTimeout(() => setShow(true), 1000);
+            let timer1 = setTimeout(() => setShow(true), 800);
             return () => {
                 setShow(false)
                 clearTimeout(timer1);
@@ -42,8 +43,8 @@ function StudentsTable({ data, showEntry, sortIt }) {
         <Table size={'sm'} striped bordered hover variant="dark">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Username{
+                    <th style={{ width: '6%' }}>#</th>
+                    <th style={{ width: '50%' }}>Username{
                         <div className="sorting-btns">
                             {
                                 isValAsc['username'] ?
@@ -54,7 +55,7 @@ function StudentsTable({ data, showEntry, sortIt }) {
                         </div>
                     }
                     </th>
-                    <th>Course{
+                    <th style={{ width: '22%' }}>Course{
                         <div className="sorting-btns">
                             {
                                 isValAsc['course'] ?
@@ -65,18 +66,30 @@ function StudentsTable({ data, showEntry, sortIt }) {
                         </div>
                     }
                     </th>
+                    <th style={{ width: '22%' }}>Gender{
+                        <div className="sorting-btns">
+                            {
+                                isValAsc['course'] ?
+                                    <FaSortUp style={{ display: 'block' }} onClick={() => sortTable('gender', isValAsc['gender'])} />
+                                    :
+                                    <FaSortDown style={{ display: 'block', marginTop: '-10px' }} onClick={() => sortTable('gender', isValAsc['gender'])} />
+                            }
+                        </div>
+                    }
+                    </th>
                 </tr>
             </thead>
 
             <tbody>
                 {
                     data && show ?
-                        data.map(({ _id: id, username, course }, index) => {
+                        data.map(({ _id: id, username, course, gender }, index) => {
                             return (
                                 <tr key={id} onClick={e => showEntry(id)}>
                                     <td>{index + 1}</td>
                                     <td>{username}</td>
                                     <td>{course}</td>
+                                    <td>{gender}</td>
                                 </tr>)
                         })
                         :
