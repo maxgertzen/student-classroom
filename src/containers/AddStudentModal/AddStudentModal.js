@@ -23,7 +23,8 @@ function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
         const checkValidity = () => {
             for (const attr in formValues) {
                 if (errorVals[attr]?.length || !formValues[attr]?.length) {
-                    setEnableButton(false)
+                    setEnableButton(false);
+                    return
                 } else {
                     setEnableButton(true)
                 }

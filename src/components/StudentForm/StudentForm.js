@@ -63,8 +63,8 @@ function StudentForm({ onChangedValue, errors }) {
                                 <FaGraduationCap />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control as="select" name="course" onChange={onChangedValue} required>
-                            <option selected disabled>Select a course</option>
+                        <Form.Control as="select" name="course" defaultValue="Select a course" onChange={onChangedValue} required>
+                            <option value="Select a course" disabled>Select a course</option>
                             {
                                 courses.map((course, index) => <option key={index}>{course}</option>)
                             }
@@ -79,7 +79,7 @@ function StudentForm({ onChangedValue, errors }) {
                             <InputGroup.Text id="gender-select" style={{ borderTopRightRadius: '0px', borderBottomRightRadius: '0px' }}>
                                 <FaTransgenderAlt />
                             </InputGroup.Text>
-                            <ToggleButtonGroup type="radio" name="gender" style={{ flex: 1 }} onChange={e => onChangedValue({ target: { value: e, name: 'gender' } })} required isInvalid={errors.gender}>
+                            <ToggleButtonGroup type="radio" name="gender" style={{ flex: 1 }} onChange={e => onChangedValue({ target: { value: e, name: 'gender' } })} required>
                                 <ToggleButton variant="outline-success" value={'Female'} style={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px' }}>
                                     Female
                                 </ToggleButton>
