@@ -33,16 +33,8 @@ const API = (() => {
             ...student
         }
         __students.push(newStudent);
-        localStorage.setItem(`${String(_id + Math.floor(Math.random() * 1000)).slice(10)}`, JSON.stringify(newStudent))
+        localStorage.setItem(`${String(_id).slice(5)}`, JSON.stringify(newStudent))
         return newStudent
-    }
-
-    const removeStudent = (id) => {
-        let index = _getStudentIndexById(id);
-        if (index > -1) {
-            let removed = __students.splice(index, 1);
-            return removed;
-        }
     }
 
     const getOneStudent = (id) => {
@@ -55,7 +47,6 @@ const API = (() => {
     return {
         getAll: getStudents,
         getOne: getOneStudent,
-        remove: removeStudent,
         add: addStudent
     }
 })();
