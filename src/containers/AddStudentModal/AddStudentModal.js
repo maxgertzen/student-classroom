@@ -76,7 +76,7 @@ function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
                 <StudentForm onChangedValue={handleChange} errors={errorVals} />
             </ModalBody>
             <ModalFooter>
-                <Button variant="primary" size="lg" type="button" form="student-add-form" block onClick={() => submitForm()} disabled={!enableButton}>
+                <Button variant="outline" className="neon__button" size="lg" type="button" form="student-add-form" block onClick={() => submitForm()} disabled={!enableButton}>
                     Submit
                 </Button>
             </ModalFooter>

@@ -9,7 +9,6 @@
 
 .modal-dialog.neon__form button.close span {
 	color: #fff;
-	transition: all 0.1 ease-in-out;
 }
 
 .modal-dialog.neon__form .form-control:focus {
@@ -21,4 +20,19 @@
 	background-color: #a25853;
 	opacity: 0.8;
 	color: rgba(17, 17, 17, 0.801) !important;
+}
+
+.neon__button {
+	box-shadow: var(--box-shadow-inset-button);
+	color: var(--text-shadow-hover) !important;
+	display: flex;
+	justify-content: center;
+	padding: 1.25rem;
+	border-radius: 0.3rem 0.3rem 3rem 3rem !important;
+}
+
+.neon__button:hover:not(:disabled) {
+	color: var(--text-color-light) !important;
+	text-shadow: var(--text-shadow);
+	box-shadow: var(--box-shadow-inset-button-hover) !important;
 }

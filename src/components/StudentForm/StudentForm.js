@@ -23,7 +23,7 @@ function StudentForm({ onChangedValue, errors }) {
                                 <FaUserCircle />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="text" id="usernameInput" className={errors.username?.length && 'with-error'} name="username" placeholder="Username" onChange={e => onChangedValue(e)} onBlur={e => onChangedValue(e)} required />
+                        <Form.Control type="text" id="usernameInput" className={errors.username?.length && 'with-error'} name="username" placeholder="Username" onChange={e => onChangedValue(e)} required />
                         <FormErrorMessage errors={errors.username} />
                     </InputGroup>
                 </Col>
@@ -35,7 +35,7 @@ function StudentForm({ onChangedValue, errors }) {
                                 <FaMailBulk />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="email" id="emailInput" className={errors.email?.length && 'with-error'} name="email" placeholder="Email" onChange={onChangedValue} onBlur={onChangedValue} required />
+                        <Form.Control type="email" id="emailInput" className={errors.email?.length && 'with-error'} name="email" placeholder="Email" onChange={onChangedValue} required />
                         <FormErrorMessage errors={errors.email} />
                     </InputGroup>
                 </Col>
@@ -49,7 +49,7 @@ function StudentForm({ onChangedValue, errors }) {
                                 <FaCity />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="text" id="addressInput" className={errors.address?.length && 'with-error'} name="address" placeholder="123 Heaven Road, Illanois" onChange={onChangedValue} onBlur={onChangedValue} required />
+                        <Form.Control type="text" id="addressInput" className={errors.address?.length && 'with-error'} name="address" placeholder="123 Heaven Road, Illanois" onChange={onChangedValue} required />
                         <FormErrorMessage errors={errors.address} />
                     </InputGroup>
                 </Col>
