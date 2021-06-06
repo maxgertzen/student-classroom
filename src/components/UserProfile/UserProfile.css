@@ -80,11 +80,10 @@
 }
 
 div.user-profile {
-	flex: 1;
+	flex: 1 0;
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
-	padding-left: 2em;
 }
 
 div.user-profile p {

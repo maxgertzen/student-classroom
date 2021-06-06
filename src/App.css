@@ -1,6 +1,14 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 *,
 ::before,
 ::after {
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -13,6 +21,7 @@ body {
 }
 
 .brand-img {
+	-webkit-filter: invert(1);
 	filter: invert(1);
 	opacity: 0.5;
 }
@@ -20,6 +29,8 @@ body {
 a.navbar-brand,
 .navbar-nav a.nav-link {
 	color: #f8ae5d !important;
+	-webkit-transition: color 0.12s ease-in-out;
+	-o-transition: color 0.12s ease-in-out;
 	transition: color 0.12s ease-in-out;
 }
 
