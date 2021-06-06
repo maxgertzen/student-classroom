@@ -16,7 +16,7 @@ function UserProfile({ user }) {
 
     return (
         <div className="user-profile neon neon__card">
-            {showMessage ? <div className="neon__message">Select student to see details</div> : <img src={image} alt={`${user.gender} avatar`} className="student-avatar neon_icon" />}
+            {showMessage ? <div className="neon__message text-center">Select student to see details</div> : <img src={image} alt={`${user.gender} avatar`} className="student-avatar neon_icon" />}
             {
                 Object.entries(user).map((entry, index) => {
                     if (entry[0] !== '_id') {

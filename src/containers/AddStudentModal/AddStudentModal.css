@@ -1,0 +1,24 @@
+.modal-dialog.neon__form .modal-content {
+	background: rgba(255, 255, 255, 0.01);
+	color: var(--text-color-light);
+	box-shadow: var(--box-shadow-inset);
+	backdrop-filter: var(--filter-blur);
+	text-shadow: var(--text-shadow);
+	border-radius: 3rem;
+}
+
+.modal-dialog.neon__form button.close span {
+	color: #fff;
+	transition: all 0.1 ease-in-out;
+}
+
+.modal-dialog.neon__form .form-control:focus {
+	border-color: #60c4aa;
+	box-shadow: 0 0 0 0.2rem rgb(0 255 106 / 25%);
+}
+
+.modal-dialog.neon__form .form-control.with-error {
+	background-color: #a25853;
+	opacity: 0.8;
+	color: rgba(17, 17, 17, 0.801) !important;
+}

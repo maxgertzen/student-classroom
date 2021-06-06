@@ -6,7 +6,7 @@ import ModalBody from 'react-bootstrap/ModalBody'
 import ModalFooter from 'react-bootstrap/ModalFooter'
 import Button from 'react-bootstrap/Button';
 import { validateDataOnSubmit, validateSingleInput } from '../../utils/formValidator';
-
+import './AddStudentModal.css'
 function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
     const [formValues, setFormValues] = useState({
         username: '',
@@ -37,6 +37,7 @@ function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
     const handleChange = (e) => {
         const { name, value } = e.target;
         const errors = validateSingleInput(e.target);
+        console.log(errors)
         setErrorVals((prevErrors) => ({
             ...prevErrors,
             [name]: errors[name]
@@ -60,7 +61,7 @@ function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
     }
 
     return (
-        <Modal show={handleShow} onHide={handleClose} backdrop="static" keyboard={false} animation>
+        <Modal show={handleShow} onHide={handleClose} dialogClassName="neon__form" backdrop="static" keyboard={false} animation>
             <ModalHeader closeButton>
                 <div className="modal-header-fix">
                     <Modal.Title className="text-center">
@@ -79,7 +80,7 @@ function AddStudentModal({ handleClose, handleShow, handleSubmit }) {
                     Submit
                 </Button>
             </ModalFooter>
-        </Modal>
+        </Modal >
     )
 }
 

@@ -23,7 +23,7 @@ function StudentForm({ onChangedValue, errors }) {
                                 <FaUserCircle />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="text" id="usernameInput" name="username" onChange={e => onChangedValue(e)} required />
+                        <Form.Control type="text" id="usernameInput" className={errors.username?.length && 'with-error'} name="username" placeholder="Username" onChange={e => onChangedValue(e)} onBlur={e => onChangedValue(e)} required />
                         <FormErrorMessage errors={errors.username} />
                     </InputGroup>
                 </Col>
@@ -35,7 +35,7 @@ function StudentForm({ onChangedValue, errors }) {
                                 <FaMailBulk />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="email" id="emailInput" name="email" onChange={onChangedValue} required />
+                        <Form.Control type="email" id="emailInput" className={errors.email?.length && 'with-error'} name="email" placeholder="Email" onChange={onChangedValue} onBlur={onChangedValue} required />
                         <FormErrorMessage errors={errors.email} />
                     </InputGroup>
                 </Col>
@@ -43,13 +43,13 @@ function StudentForm({ onChangedValue, errors }) {
             <Row className="my-2">
                 <Col>
                     <label htmlFor="addressInput">Address</label>
-                    <InputGroup className={`${errors.address ? 'has-errors' : ''}`}>
+                    <InputGroup>
                         <InputGroup.Prepend>
                             <InputGroup.Text id="addressInput">
                                 <FaCity />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control type="text" id="addressInput" name="address" onChange={onChangedValue} required />
+                        <Form.Control type="text" id="addressInput" className={errors.address?.length && 'with-error'} name="address" placeholder="123 Heaven Road, Illanois" onChange={onChangedValue} onBlur={onChangedValue} required />
                         <FormErrorMessage errors={errors.address} />
                     </InputGroup>
                 </Col>
@@ -63,7 +63,7 @@ function StudentForm({ onChangedValue, errors }) {
                                 <FaGraduationCap />
                             </InputGroup.Text>
                         </InputGroup.Prepend>
-                        <Form.Control as="select" name="course" defaultValue="Select a course" onChange={onChangedValue} required>
+                        <Form.Control as="select" name="course" className={errors.course?.length && 'with-error'} defaultValue="Select a course" onChange={onChangedValue} required>
                             <option value="Select a course" disabled>Select a course</option>
                             {
                                 courses.map((course, index) => <option key={index}>{course}</option>)
