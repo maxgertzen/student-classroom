@@ -4,7 +4,16 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const API = (() => {
-    const { students: __students } = data;
+    const __students = (() => {
+        let storedStudents = []
+        Object.keys(window.localStorage)?.forEach(function (key) {
+            let student = JSON.parse(localStorage.getItem(key))
+            storedStudents.push(student);
+        });
+        return [...data.students, ...storedStudents]
+    })();
+
+
 
     const _getStudentIndexById = (id) => {
         return __students.findIndex(obj => obj._id === id);
@@ -24,6 +33,7 @@ const API = (() => {
             ...student
         }
         __students.push(newStudent);
+        localStorage.setItem(`${String(_id + Math.floor(Math.random() * 1000)).slice(10)}`, JSON.stringify(newStudent))
         return newStudent
     }
 

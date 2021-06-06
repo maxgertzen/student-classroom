@@ -40,7 +40,7 @@ function StudentsTable({ data, showEntry, sortIt, highlightStudent }) {
     }
 
     return (
-        <Table size={'sm'} striped hover variant="dark">
+        <Table size={'sm'} striped hover variant="dark" style={{ maxHeight: '80vh' }} responsive>
             <thead>
                 <tr>
                     <th style={{ width: '6%' }}>#</th>

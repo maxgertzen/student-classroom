@@ -8,11 +8,10 @@ import { default as api } from './Dal/usersAPI';
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false)
-  const [studentsList, setStudentsList] = useState([])
+  const [studentsList, setStudentsList] = useState([]);
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
   const addUserToDatabase = (user) => {
-    console.table(user)
     setStudentsList(prevList => [...prevList, api.add(user)]);
     closeModal();
   };

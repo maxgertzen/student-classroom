@@ -15,10 +15,23 @@
 	margin-left: 1rem;
 }
 
-.neon__icon {
+.input-group-text {
+	box-shadow: var(--box-shadow-inset-button);
+	color: var(--text-color-light);
+	text-shadow: var(--text-shadow);
+	display: flex;
+	justify-content: center;
+	background-color: transparent !important;
+}
+
+.neon__icon,
+.input-group-text svg {
 	filter: drop-shadow(var(--drop-shadow));
-	filter: invert(3);
-	margin-bottom: 0.25rem;
+	filter: invert(1);
+}
+.input-group-text svg {
+	fill: var(--text-color-light);
+	filter: drop-shadow(var(--drop-shadow));
 }
 
 .neon__title,
@@ -89,4 +102,15 @@ img.student-avatar {
 	object-fit: scale-down;
 	margin-bottom: 2.5em;
 	filter: invert(1);
+}
+
+@media screen and (min-width: 1024px) {
+	.neon {
+		max-height: 70vh;
+	}
+}
+@media screen and (max-height: 512px) {
+	img.student-avatar {
+		display: none;
+	}
 }

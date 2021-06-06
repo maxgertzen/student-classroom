@@ -13,6 +13,10 @@
 	transition: opacity 200ms;
 }
 
+.table-responsive {
+	flex: 2;
+}
+
 thead th svg {
 	cursor: pointer;
 	filter: contrast(0%);
