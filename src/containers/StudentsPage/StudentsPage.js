@@ -20,7 +20,7 @@ function StudentsPage({ data, sortTable }) {
 
     return (
         <div className="classroom-app-container">
-            <StudentsTable data={showStudents} showEntry={handleSelect} sortIt={sortTable} />
+            <StudentsTable data={showStudents} showEntry={handleSelect} sortIt={sortTable} highlightStudent={selectedStudent} />
             <UserProfile user={selectedStudent} />
         </div>
     )

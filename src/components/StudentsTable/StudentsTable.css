@@ -34,8 +34,18 @@ thead th svg:hover {
 
 tbody tr {
 	opacity: 0.5;
-	transition: opacity 0.3s linear;
+	transition: opacity 0.15s linear, background-color 0.15s ease-in-out,
+		color 0.15s ease-in-out;
 }
+
+.highlight-row,
 tbody tr:hover {
 	opacity: 1 !important;
+	background-color: #f8ae5d !important;
+}
+
+.highlight-row {
+	filter: brightness(100%);
+	background-color: #f8ae5d;
+	color: #000;
 }

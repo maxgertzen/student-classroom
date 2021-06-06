@@ -5,7 +5,7 @@ import Spinner from 'react-bootstrap/Spinner'
 // import { CSSTransition } from 'react-transition-group';
 import './StudentsTable.css';
 
-function StudentsTable({ data, showEntry, sortIt }) {
+function StudentsTable({ data, showEntry, sortIt, highlightStudent }) {
     const [show, setShow] = useState(false);
     const [isValAsc, setIsValAsc] = useState({
         username: false,
@@ -40,7 +40,7 @@ function StudentsTable({ data, showEntry, sortIt }) {
     }
 
     return (
-        <Table size={'sm'} striped bordered hover variant="dark">
+        <Table size={'sm'} striped hover variant="dark">
             <thead>
                 <tr>
                     <th style={{ width: '6%' }}>#</th>
@@ -85,7 +85,7 @@ function StudentsTable({ data, showEntry, sortIt }) {
                     data && show ?
                         data.map(({ _id: id, username, course, gender }, index) => {
                             return (
-                                <tr key={id} onClick={e => showEntry(id)}>
+                                <tr key={id} onClick={e => showEntry(id)} className={`${highlightStudent._id === id ? 'highlight-row' : ''}`}>
                                     <td>{index + 1}</td>
                                     <td>{username}</td>
                                     <td>{course}</td>

@@ -9,3 +9,13 @@ body {
 	filter: invert(1);
 	opacity: 0.5;
 }
+
+a.navbar-brand,
+.navbar-nav a.nav-link {
+	color: #f8ae5d !important;
+	transition: color 0.12s ease-in-out;
+}
+
+.navbar-nav a.nav-link:hover {
+	color: #fff !important;
+}
