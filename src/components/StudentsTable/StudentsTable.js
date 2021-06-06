@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import { FaSortDown, FaSortUp } from 'react-icons/fa';
 import Spinner from 'react-bootstrap/Spinner'
-// import { CSSTransition } from 'react-transition-group';
 import './StudentsTable.css';
 
 function StudentsTable({ data, showEntry, sortIt, highlightStudent }) {

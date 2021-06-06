@@ -11,6 +11,7 @@ function App() {
   const [studentsList, setStudentsList] = useState([]);
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
+
   const addUserToDatabase = (user) => {
     setStudentsList(prevList => [...prevList, api.add(user)]);
     closeModal();
